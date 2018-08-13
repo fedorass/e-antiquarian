@@ -1,0 +1,21 @@
+<header style="flex: 0 0 50px">Nav</header>
+
+<div class="hbox strech rounded_box">
+    <div class="strech rounded_box">
+        Content
+    </div>
+    <div *ngIf="showFiltersPanel" class="rounded_box filter-column" #numismaticsFilters style="flex: 0 0 250px">
+            filter
+    </div>
+</div>
+<footer style="flex: 0 0 50px">
+
+        pagenator
+</footer>
+
+<div class="fixed-action-btn" style="top: 50px; right: 24px;">
+    <a class="btn-floating btn-large blue" (click)="onFilterShowClick()">
+        <i class="fa" [ngClass]="{'fa-chevron-left': !showFiltersPanel, 'fa-chevron-right': showFiltersPanel}"></i>
+    </a>
+</div>
+
