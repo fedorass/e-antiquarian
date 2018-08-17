@@ -1,10 +1,6 @@
 package ua.hobby.antiquarian.app.domain.entity;
 
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
-
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -12,7 +8,7 @@ import java.util.UUID;
 @Entity
 @TableGenerator(name = "numismaticsMonetaryPeriodIdGen", table = "sequences",
         pkColumnName = "ID", valueColumnName = "VALUE",
-        pkColumnValue = "MONETARY_PERIOD_ID", initialValue = 1000, allocationSize = 10)
+        pkColumnValue = "NUMISMATICS_MONETARY_PERIOD_ID", initialValue = 1000, allocationSize = 10)
 public class NumismaticsMonetaryPeriod {
 
     private Long id;
@@ -22,7 +18,7 @@ public class NumismaticsMonetaryPeriod {
     private Long endYear;
     private String periodGroup;
     private String currency;
-    private Collection<Material> materials;
+    private Set<CollectionItemMaterial> materials = new HashSet<>();
     private Set<CollectionItemDenomination> denominations = new HashSet<>();
     private Country country;
 
@@ -91,14 +87,13 @@ public class NumismaticsMonetaryPeriod {
         this.currency = iso;
     }
 
-    @ElementCollection
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @CollectionTable(name = "numismatics_period_materials", joinColumns=@JoinColumn(name="item_id"))
-    public Collection<Material> getMaterials() {
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "numismatics_period_materials", joinColumns=@JoinColumn(name="item_id"), inverseJoinColumns=@JoinColumn(name="material_id"))
+    public Set<CollectionItemMaterial> getMaterials() {
         return materials;
     }
 
-    public void setMaterials(Collection<Material> materials) {
+    public void setMaterials(Set<CollectionItemMaterial> materials) {
         this.materials = materials;
     }
 
@@ -113,7 +108,6 @@ public class NumismaticsMonetaryPeriod {
     }
 
     @OneToMany(fetch = FetchType.EAGER)
-    @LazyCollection(LazyCollectionOption.FALSE)
     @JoinTable(name = "numismatics_period_denominations", joinColumns=@JoinColumn(name="item_id"), inverseJoinColumns=@JoinColumn(name="denomination_id"))
     public Set<CollectionItemDenomination> getDenominations() {
         return denominations;

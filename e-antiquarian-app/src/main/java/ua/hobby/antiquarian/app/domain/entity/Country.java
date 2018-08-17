@@ -1,7 +1,8 @@
 package ua.hobby.antiquarian.app.domain.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +20,7 @@ public abstract class Country {
     private String isoCode;
     private String userEmail;
     private String defaultName;
-    private Collection<Material> materials;
+    private Set<CollectionItemMaterial> materials = new HashSet<>();
 
     @Id
     @Column(name = "id", updatable = false)
@@ -77,13 +78,13 @@ public abstract class Country {
         this.defaultName = defaultName;
     }
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "country_materials", joinColumns=@JoinColumn(name="item_id"))
-    public Collection<Material> getMaterials() {
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "country_materials", joinColumns=@JoinColumn(name="item_id"), inverseJoinColumns=@JoinColumn(name="material_id"))
+    public Set<CollectionItemMaterial> getMaterials() {
         return materials;
     }
 
-    public void setMaterials(Collection<Material> materials) {
+    public void setMaterials(Set<CollectionItemMaterial> materials) {
         this.materials = materials;
     }
 

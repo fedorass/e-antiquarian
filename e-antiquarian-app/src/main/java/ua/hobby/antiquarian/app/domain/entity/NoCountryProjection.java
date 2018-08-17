@@ -1,6 +1,6 @@
 package ua.hobby.antiquarian.app.domain.entity;
 
-import java.util.Collection;
+import java.util.Set;
 import java.util.UUID;
 
 public interface NoCountryProjection {
@@ -10,6 +10,6 @@ public interface NoCountryProjection {
     Long getEndYear();
     String getPeriodGroup();
     UUID getUuid();
-    Collection<Material> getMaterials();
-    Collection<CollectionItemDenomination> getDenominations();
+    Set<CollectionItemMaterial> getMaterials();
+    Set<CollectionItemDenomination> getDenominations();
 }
