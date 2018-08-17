@@ -8,6 +8,5 @@ public class JerseyConfig extends ResourceConfig {
 
     public JerseyConfig() {
         register(NumismaticsCountryResource.class);
-        register(MonetaryPeriodResource.class);
     }
 }

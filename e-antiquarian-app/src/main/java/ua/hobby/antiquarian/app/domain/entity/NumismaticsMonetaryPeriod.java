@@ -5,13 +5,15 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@TableGenerator(name = "monetaryPeriodIdGen", table = "sequences",
+@TableGenerator(name = "numismaticsMonetaryPeriodIdGen", table = "sequences",
         pkColumnName = "ID", valueColumnName = "VALUE",
         pkColumnValue = "MONETARY_PERIOD_ID", initialValue = 1000, allocationSize = 10)
-public class MonetaryPeriod {
+public class NumismaticsMonetaryPeriod {
 
     private Long id;
     private Long version = 1L;
@@ -21,12 +23,12 @@ public class MonetaryPeriod {
     private String periodGroup;
     private String currency;
     private Collection<Material> materials;
-    private Collection<Denomination> denominations;
+    private Set<CollectionItemDenomination> denominations = new HashSet<>();
     private Country country;
 
     @Id
     @Column(name = "id", updatable = false)
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "monetaryPeriodIdGen")
+    @GeneratedValue(strategy = GenerationType.TABLE, generator = "numismaticsMonetaryPeriodIdGen")
     public Long getId() {
         return id;
     }
@@ -91,7 +93,7 @@ public class MonetaryPeriod {
 
     @ElementCollection
     @LazyCollection(LazyCollectionOption.FALSE)
-    @CollectionTable(name = "period_materials", joinColumns=@JoinColumn(name="item_id"))
+    @CollectionTable(name = "numismatics_period_materials", joinColumns=@JoinColumn(name="item_id"))
     public Collection<Material> getMaterials() {
         return materials;
     }
@@ -110,14 +112,14 @@ public class MonetaryPeriod {
         this.country = country;
     }
 
-    @ElementCollection
+    @OneToMany(fetch = FetchType.EAGER)
     @LazyCollection(LazyCollectionOption.FALSE)
-    @CollectionTable(name = "period_denominations", joinColumns=@JoinColumn(name="item_id"))
-    public Collection<Denomination> getDenominations() {
+    @JoinTable(name = "numismatics_period_denominations", joinColumns=@JoinColumn(name="item_id"), inverseJoinColumns=@JoinColumn(name="denomination_id"))
+    public Set<CollectionItemDenomination> getDenominations() {
         return denominations;
     }
 
-    public void setDenominations(Collection<Denomination> denominations) {
+    public void setDenominations(Set<CollectionItemDenomination> denominations) {
         this.denominations = denominations;
     }
 }

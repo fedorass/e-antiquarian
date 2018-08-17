@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, TemplateRef, ElementRef, SimpleChanges } 
 
 import { ActivatedRoute } from '@angular/router';
 
-import { MonetaryPeriodService } from '../../service/monetary-period.service';
+import { NumismaticsService } from '../../service/numismatics.service';
 
 @Component({
   selector: 'app-numismatics',
@@ -26,7 +26,7 @@ export class NumismaticsComponent implements OnInit {
   materialFilters: Array<any> = [];
   denominationFilters: Array<any> = [];  
 
-  constructor(private route: ActivatedRoute, private monetaryPeriodService: MonetaryPeriodService) { 
+  constructor(private route: ActivatedRoute, private numismaticsService: NumismaticsService) { 
     this.showFiltersPanel = true;
   }
 
@@ -52,7 +52,7 @@ export class NumismaticsComponent implements OnInit {
     this.selectedCountry = country;
     this.monetaryPeriods = [];
     this.selectedMonetaryPeriod = null;
-    this.monetaryPeriodService.findAll(country.value).subscribe(monetaryPeriods => {    
+    this.numismaticsService.findCoutryIssuePeriods(country.value).subscribe(monetaryPeriods => {    
 
         let groups = new Set();
 
@@ -114,7 +114,7 @@ export class NumismaticsComponent implements OnInit {
     this.denominationFilters = this.selectedMonetaryPeriod.denominations.map(item => {
 
       return {
-        code: item.code,
+        code: item.denotation,
         label: item.denomination
       }
 

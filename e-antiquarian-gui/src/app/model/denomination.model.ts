@@ -1,6 +1,6 @@
 export interface Denomination {
     
     denomination: string;
-    code: string; 
+    denotation: string; 
     rate: number;
 }

@@ -5,19 +5,19 @@ import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { CountryService } from '../../service/country.service';
+import { NumismaticsService } from '../../service/numismatics.service';
 
 @Injectable({ 
     providedIn: 'root' 
 })
 export class CountriesResolver implements Resolve<Observable<any[]>> {
 
-    constructor(private countryService: CountryService) { }
+    constructor(private numismaticsService: NumismaticsService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any[]> {
 
         let email =  'oleksandr.fedoras@gmail.com';
-        return this.countryService.findAll(email).pipe(
+        return this.numismaticsService.findUserCountries(email).pipe(
             map(countries => {
                 return countries.map(country => {
                     return {

@@ -11,5 +11,5 @@ public interface NoCountryProjection {
     String getPeriodGroup();
     UUID getUuid();
     Collection<Material> getMaterials();
-    Collection<Denomination> getDenominations();
+    Collection<CollectionItemDenomination> getDenominations();
 }
