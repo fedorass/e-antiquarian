@@ -6,20 +6,20 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Denomination {
 
-    private String code;
+    private String denotation;
     private String denomination;
     private Double rate;
 
-    @Column
-    public String getCode() {
-        return code;
+    @Column(unique = true, nullable = false)
+    public String getDenotation() {
+        return denotation;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setDenotation(String denotation) {
+        this.denotation = denotation;
     }
 
-    @Column
+    @Column(nullable = false)
     public String getDenomination() {
         return denomination;
     }
