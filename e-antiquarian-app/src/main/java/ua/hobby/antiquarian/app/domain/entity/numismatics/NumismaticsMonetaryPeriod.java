@@ -1,4 +1,8 @@
-package ua.hobby.antiquarian.app.domain.entity;
+package ua.hobby.antiquarian.app.domain.entity.numismatics;
+
+import ua.hobby.antiquarian.app.domain.entity.CollectionItemDenomination;
+import ua.hobby.antiquarian.app.domain.entity.CollectionItemMaterial;
+import ua.hobby.antiquarian.app.domain.entity.CollectionCountry;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -20,7 +24,7 @@ public class NumismaticsMonetaryPeriod {
     private String currency;
     private Set<CollectionItemMaterial> materials = new HashSet<>();
     private Set<CollectionItemDenomination> denominations = new HashSet<>();
-    private Country country;
+    private CollectionCountry country;
 
     @Id
     @Column(name = "id", updatable = false)
@@ -99,11 +103,11 @@ public class NumismaticsMonetaryPeriod {
 
     @ManyToOne
     @JoinColumn(name="country_id")
-    public Country getCountry() {
+    public CollectionCountry getCountry() {
         return country;
     }
 
-    public void setCountry(Country country) {
+    public void setCountry(CollectionCountry country) {
         this.country = country;
     }
 

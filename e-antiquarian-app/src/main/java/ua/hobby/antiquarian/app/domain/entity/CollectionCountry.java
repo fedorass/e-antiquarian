@@ -11,8 +11,8 @@ import java.util.UUID;
         pkColumnName = "id", valueColumnName = "value",
         pkColumnValue = "COUNTRY_ID", initialValue = 1000, allocationSize = 10)
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name="country_type", discriminatorType= DiscriminatorType.STRING)
-public abstract class Country {
+@DiscriminatorColumn(name="collection_country_type", discriminatorType= DiscriminatorType.STRING)
+public abstract class CollectionCountry {
 
     private Long id;
     private Long version = 1L;

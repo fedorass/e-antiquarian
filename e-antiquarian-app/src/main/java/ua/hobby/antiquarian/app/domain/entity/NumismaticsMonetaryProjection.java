@@ -3,13 +3,12 @@ package ua.hobby.antiquarian.app.domain.entity;
 import java.util.Set;
 import java.util.UUID;
 
-public interface NoCountryProjection {
+public interface NumismaticsMonetaryProjection {
 
-    Long getId();
+    UUID getUuid();
     Long getStartYear();
     Long getEndYear();
     String getPeriodGroup();
-    UUID getUuid();
     Set<CollectionItemMaterial> getMaterials();
     Set<CollectionItemDenomination> getDenominations();
 }
