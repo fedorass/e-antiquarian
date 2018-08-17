@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { SharedContentService } from '../content.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +10,9 @@ export class HeaderComponent implements OnInit {
   @ViewChild("sidenav") 
   private sideNavRef: ElementRef;
 
-  constructor(private sharedContent: SharedContentService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.sharedContent.setSideNavRef(this.sideNavRef);
   }
 
 }

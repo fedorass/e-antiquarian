@@ -5,7 +5,7 @@ import { Component, OnChanges, OnInit, Input, Output, EventEmitter, SimpleChange
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss'],
   host: {
-    'class': 'col-md-12 mb-1'
+    'class': 'mb-1'
   }
 })
 export class FilterComponent implements OnInit, OnChanges {

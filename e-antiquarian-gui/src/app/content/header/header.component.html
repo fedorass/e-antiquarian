@@ -1,41 +1,17 @@
-<header>
-    <mdb-side-nav #sidenav class="side-nav-light">
-      
-      <li style="padding: 5px">
-            <button type="button" class="btn btn-light-blue btn-block" mdbWavesEffect><i class="fa fa-send mr-1"></i>Apply</button>
-      </li>
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false">
 
-      <li>
-      <ng-template #defaultFilters>
-  
-          <div>
-              Default Filters
-          </div>
-          
-      </ng-template>
-      </li>
-      
-      <li style="margin-left: 10px">
-        <ng-container *ngTemplateOutlet="sharedContent.getFilterTemplateRef()? sharedContent.getFilterTemplateRef(): defaultFilters"></ng-container>
-      </li>
-      
-
-      <!--/. Side navigation links -->
-      <div class="sidenav-bg mask-strong"></div>
-    </mdb-side-nav>
-
-  <mdb-navbar SideClass="navbar navbar-1  navbar-dark unique-color" height="45px" [containerInside]="false" >
     <mdb-navbar-brand>
         <div class="navbar-brand">
-          <img src="assets/header/logo.png" height="45px">
-          <span class="font-weight-bold">Rarity&Collections</span>
+            <img src="assets/header/logo.png" height="45px">
+            <span class="font-weight-bold">Rarity&Collections</span>
         </div>
     </mdb-navbar-brand>
-
+    
     <links>
+
         <ul class="navbar-nav mr-auto">
             <li class="nav-item" routerLinkActive="/numismatics" routerLinkActive="active">
-                <a class="nav-link waves-light" routerLink="/numismatics" mdbWavesEffect >Numismatics</a>
+                <a class="nav-link waves-light" routerLink="/numismatics" mdbWavesEffect>Numismatics</a>
             </li>
             <li class="nav-item" routerLinkActive="/bullions" routerLinkActive="active">
                 <a class="nav-link waves-light" routerLink="/bullions" mdbWavesEffect>Bullion Coins</a>
@@ -43,11 +19,22 @@
             <li class="nav-item" routerLinkActive="/bonistics" routerLinkActive="active">
                 <a class="nav-link waves-light" routerLink="/bonistics" mdbWavesEffect>Bonistics</a>
             </li>
-            <li class="nav-item border-top border-light" routerLinkActive="/configuration" routerLinkActive="active">
-                <a class="nav-link waves-light disabled" routerLink="/configuration" mdbWavesEffect><i class="fa fa-cogs"></i>Configuration</a>
-            </li>
         </ul>
-    </links>
 
-  </mdb-navbar>
-</header>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                    <i class="fa fa-vcard"></i><span class="caret"></span>
+                </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown-primary shoq" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#"><i class="fa fa-gears"></i>Configuration</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#"><i class="fa fa-sign-out"></i>Log Out</a>
+                </div>
+            </li>
+    
+        </ul>
+
+    </links>
+    
+    </mdb-navbar>

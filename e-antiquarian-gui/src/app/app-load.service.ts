@@ -1,21 +1,16 @@
-import { Injectable, Inject } from "@angular/core";
-
-import {sequelize} from './sequelize';
+import { Injectable } from "@angular/core";
 
 @Injectable({ 
     providedIn: 'root' 
 })
 export class AppLoadService {
 
-    constructor(@Inject('USER_HOME_DIR') private baseDir: string) { }
+    constructor() { }
 
-    initializeSequelize(): Promise<any> {
+    initializeApp(): Promise<any> {
         
         return new Promise((resolve, reject) => {
-            
-            //sequelize.sync({force: true});
-            
-            console.log(`HOME DIR: ${this.baseDir}`);
+        
             
             resolve();
         });
