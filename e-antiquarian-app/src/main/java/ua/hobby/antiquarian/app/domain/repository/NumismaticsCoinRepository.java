@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
-import ua.hobby.antiquarian.app.domain.entity.NumismaticsCoinProjection;
+import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsCoinProjection;
 import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsCoin;
 
 import java.util.UUID;

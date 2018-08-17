@@ -3,7 +3,7 @@ package ua.hobby.antiquarian.app.domain.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsMonetaryPeriod;
-import ua.hobby.antiquarian.app.domain.entity.NumismaticsMonetaryProjection;
+import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsMonetaryProjection;
 
 import java.util.UUID;
 
