@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Country } from '../model/country.model';
-import { MonetaryPeriod } from '../model/monetary-period.model';
+import { NumismaticsMonetaryPeriod } from '../model/ numismatics-monetary-period.model';
+import { NumismaticsCoin } from '../model/numismatics-coin.model';
 
 @Injectable({ 
     providedIn: 'root' 
@@ -21,11 +22,16 @@ export class NumismaticsService {
         return this.http.get<any[]>(queryUrl);
     }
 
-    findCoutryIssuePeriods(countryUuid: string): Observable<MonetaryPeriod[]> {
+    findCoutryIssuePeriods(countryUuid: string): Observable<NumismaticsMonetaryPeriod[]> {
 
         const queryUrl = `${this.baseUrl}/numismatics/${countryUuid}/issue-periods`;
     
         return this.http.get<any[]>(queryUrl);
     
+    }
+
+    findIssuePeriodCoins(issuePeriodUuid: string): Observable<NumismaticsCoin[]> {
+
+        return null;
     }
 }
