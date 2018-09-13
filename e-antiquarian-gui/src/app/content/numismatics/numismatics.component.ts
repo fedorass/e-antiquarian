@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { NumismaticsService } from '../../service/numismatics.service';
 
+import { Page } from '../../model/page.model';
+
 @Component({
   selector: 'app-numismatics',
   templateUrl: './numismatics.component.html',
@@ -26,8 +28,19 @@ export class NumismaticsComponent implements OnInit {
   materialFilters: Array<any> = [];
   denominationFilters: Array<any> = [];  
 
+  coins: Array<any> = [];
+
+  currentPage: Page<any>;
+
+  selectedDenominationId: string;
+  selectedMaterialId: string;
+
+  @ViewChild('coinsView') 
+  coinsView: ElementRef;
+
   constructor(private route: ActivatedRoute, private numismaticsService: NumismaticsService) { 
     this.showFiltersPanel = true;
+    this.currentPage = new Page<any>();
   }
 
   ngOnInit() {
@@ -52,6 +65,10 @@ export class NumismaticsComponent implements OnInit {
     this.selectedCountry = country;
     this.monetaryPeriods = [];
     this.selectedMonetaryPeriod = null;
+
+    this.coins = [];
+    this.currentPage = new Page<any>();
+
     this.numismaticsService.findCoutryIssuePeriods(country.value).subscribe(monetaryPeriods => {    
 
         let groups = new Set();
@@ -93,6 +110,9 @@ export class NumismaticsComponent implements OnInit {
   monetaryPeriodChanged(monetaryPeriod): void {
     this.selectedMonetaryPeriod = monetaryPeriod;
 
+    this.coins = [];
+    this.currentPage = new Page<any>();
+
     let materials: Array<any> = [];
     if (this.selectedCountry.materials) {
       materials = materials.concat(this.selectedCountry.materials);
@@ -105,6 +125,7 @@ export class NumismaticsComponent implements OnInit {
     this.materialFilters = materials.map(item => {
 
       return {
+        id: item.id,
         code: item.composition,
         label: item.material
       }
@@ -114,22 +135,40 @@ export class NumismaticsComponent implements OnInit {
     this.denominationFilters = this.selectedMonetaryPeriod.denominations.map(item => {
 
       return {
+        id: item.id,
         code: item.denotation,
         label: item.denomination
       }
 
     });
-  }
 
-  getTotalPages(): number {
-    return 0;
-  }
+    this.retrieveCoins(0);
 
-  hasMore(): boolean {
-    return false;
   }
 
   onPageNumberChanged(pageNumber: number): void {
+
+    this.retrieveCoins(pageNumber);
+
+  }
+
+  retrieveCoins(pageNumber: number): void {
+    
+    this.numismaticsService.findIssuePeriodCoins(this.selectedMonetaryPeriod.value, pageNumber).subscribe(responce => {
+      this.coins = responce.content;
+      this.currentPage = responce;
+
+      this.coinsView.nativeElement.scrollTop = 0;
+    });
+  
+  }
+
+  onDenominationChanged(denominationId?: string): void {
+    this.selectedDenominationId = denominationId;
+  }
+
+  onMaterialChanged(materialId?: string): void {
+    this.selectedMaterialId = materialId;
   }
 
 }

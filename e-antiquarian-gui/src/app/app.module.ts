@@ -9,10 +9,15 @@ import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
 import { MDBSpinningPreloader } from 'ng-uikit-pro-standard';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './content/header/header.component';
 import { FooterComponent } from './content/footer/footer.component';
+
 import { NumismaticsComponent } from './content/numismatics/numismatics.component';
+import { NumismaticsCoinComponent } from './content/numismatics/numismatics-coin/numismatics-coin.component';
+
+
 import { BullionsComponent } from './content/bullions/bullions.component';
 import { BonisticsComponent } from './content/bonistics/bonistics.component';
 import { PaginationComponent } from './content/pagination/pagination.component';
@@ -33,6 +38,8 @@ export function init_app(appLoadService: AppLoadService) {
     FilterComponent,
 
     NumismaticsComponent,
+    NumismaticsCoinComponent,
+
     BullionsComponent,
     BonisticsComponent,
     PaginationComponent

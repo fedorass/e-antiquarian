@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+import { Page } from '../../model/page.model';
+
 @Component({
   selector: 'grid-pagination',
   templateUrl: './pagination.component.html',
@@ -8,43 +10,37 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PaginationComponent implements OnInit {
 
   @Input()
-  pageNumber: number;
-
-  @Input()
-  totalPages: number;
-
-  @Input()
-  hasMore: boolean;
+  page: Page<any>;
 
   @Output() onPageNumberChanged = new EventEmitter<number>();
 
   constructor() {
-    this.pageNumber = 0;
-    this.totalPages = 0;
-    this.hasMore = false;
+
    }
 
   ngOnInit() {
   }
 
   isFirst(): boolean {
-    return this.totalPages === 0 || this.pageNumber === 0;
+    return this.page.first;
   }
 
   hasNext(): boolean {
-    return this.pageNumber < (this.totalPages - 1) || this.hasMore;
+    return this.page.number < this.page.totalPages - 1;
   }
 
   hasPrevious(): boolean {
-    return this.pageNumber > 0;
+    return this.page.number > 0;
   }
 
   getPageNumbers(): any[] {
-    return Array(this.totalPages);
+    return Array(this.page.totalPages);
   }
 
   pageNumberChanged(n : number): void {
-    this.onPageNumberChanged.emit(n);
+    if (this.page.number !== n) {
+      this.onPageNumberChanged.emit(n);
+    }
   }
  
 }
