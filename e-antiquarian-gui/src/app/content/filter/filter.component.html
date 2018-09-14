@@ -8,6 +8,6 @@
 </div>
 
 <div class="form-check" *ngFor="let value of values">
-    <input [name]="name" type="radio" class="form-check-input with-gap" [id]="value.code" [value]='value.id' [(ngModel)]="selected" (change)="onFilterChange()">
+    <input [name]="name" type="radio" class="form-check-input with-gap" [id]="value.code" [value]='value.code' [(ngModel)]="selected" (change)="onFilterChange()">
     <label class="form-check-label" [for]="value.code">{{ value.label }}</label>
 </div>

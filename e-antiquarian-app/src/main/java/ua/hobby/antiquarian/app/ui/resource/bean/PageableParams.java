@@ -11,6 +11,7 @@ public class PageableParams {
     @QueryParam("page")
     @DefaultValue("0")
     private Integer page;
+
     @QueryParam("size")
     @DefaultValue("12")
     private Integer size;

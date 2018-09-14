@@ -33,7 +33,7 @@ public class CollectionItemMaterial {
         this.version = version;
     }
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     public String getComposition() {
         return composition;
     }

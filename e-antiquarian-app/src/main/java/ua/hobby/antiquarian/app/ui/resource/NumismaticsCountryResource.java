@@ -9,6 +9,7 @@ import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsCountry;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsCoinRepository;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsCountryRepository;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsMonetaryPeriodRepository;
+import ua.hobby.antiquarian.app.ui.resource.bean.NumismaticsCoinParams;
 import ua.hobby.antiquarian.app.ui.resource.bean.PageableParams;
 
 import javax.ws.rs.*;
@@ -43,8 +44,11 @@ public class NumismaticsCountryResource {
     @GET
     @Path("/issue-periods/{uuid}/coins")
     @Produces({"application/json"})
-    public Page<NumismaticsCoinProjection> getNumismaticsCoins(@PathParam("uuid") String issuePeriodId, @BeanParam PageableParams pageableParams) {
+    public Page<NumismaticsCoinProjection> getNumismaticsCoins(
+            @PathParam("uuid") String issuePeriodId,
+            @BeanParam PageableParams pageableParams,
+            @BeanParam NumismaticsCoinParams numismaticsCoinParams) {
 
-        return coinRepository.findAllByMonetaryPeriodUuid(UUID.fromString(issuePeriodId), pageableParams.toPageable());
+        return coinRepository.findAllByMonetaryPeriod(UUID.fromString(issuePeriodId), numismaticsCoinParams.getMaterial(), numismaticsCoinParams.getDenomination(), pageableParams.toPageable());
     }
 }

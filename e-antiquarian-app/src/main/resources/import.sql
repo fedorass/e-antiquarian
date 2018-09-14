@@ -110,3 +110,10 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (45, 1, '93c567a9-fa03-46eb-92d5-32651bf334c0', 2, '2017-12-07', 2, 4);
 
 -- obverse reverse
+-- 5 UAH Nickel Silver
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (50, 1, '5ef8b7b7-c1fc-46ba-ba36-03ac89313cfb', 2, '2005-06-01', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (51, 1, '743fb274-31a0-409e-bc9e-0da584d7d93c', 2, '2005-12-23', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (52, 1, 'abd968c8-7af1-4e32-b35e-f7e8cfaebda1', 2, '2006-08-18', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (53, 1, 'e01b90d3-0b5b-4967-9900-bc99609b1e3b', 2, '2006-08-29', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (54, 1, '823d946f-a596-4676-b47a-66cf0fd52137', 2, '2008-09-15', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (55, 1, '8bf57c38-0bca-4bc3-b33a-719bd95ca342', 2, '2009-04-16', 2, 5);

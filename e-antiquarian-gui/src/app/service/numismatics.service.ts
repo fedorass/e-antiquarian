@@ -33,10 +33,24 @@ export class NumismaticsService {
     
     }
 
-    findIssuePeriodCoins(issuePeriodUuid: string, page: number = 0,  size: number = DEFAULT_PAGE_SIZE): Observable<Page<NumismaticsCoin>> {
+    findIssuePeriodCoins(issuePeriodUuid: string, page: number = 0,  filters: any): Observable<Page<NumismaticsCoin>> {
         
-        const queryUrl = `${this.baseUrl}/numismatics/issue-periods/${issuePeriodUuid}/coins?page=${page}&size=${size}`;
+        let params: string = '';
+
+        if (filters) {
+            Object.entries(filters)
+                .filter(([key, value]) => (value? true: false))
+                .forEach(([key, value]) => {
+                    params = params + `&${key}=${value}`;
+                });
+        }
+        const queryUrl = `${this.baseUrl}/numismatics/issue-periods/${issuePeriodUuid}/coins?page=${page}&size=${DEFAULT_PAGE_SIZE}`;
         
-        return this.http.get<Page<NumismaticsCoin>>(queryUrl);
+        if (params) {
+            return this.http.get<Page<NumismaticsCoin>>(queryUrl + params);
+        }
+        else {
+            return this.http.get<Page<NumismaticsCoin>>(queryUrl);
+        }
     }
 }

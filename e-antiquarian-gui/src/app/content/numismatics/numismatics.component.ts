@@ -32,8 +32,8 @@ export class NumismaticsComponent implements OnInit {
 
   currentPage: Page<any>;
 
-  selectedDenominationId: string;
-  selectedMaterialId: string;
+  selectedDenomination: string;
+  selectedMaterial: string;
 
   @ViewChild('coinsView') 
   coinsView: ElementRef;
@@ -109,6 +109,8 @@ export class NumismaticsComponent implements OnInit {
 
   monetaryPeriodChanged(monetaryPeriod): void {
     this.selectedMonetaryPeriod = monetaryPeriod;
+    this.selectedMaterial = null;
+    this.selectedDenomination = null;
 
     this.coins = [];
     this.currentPage = new Page<any>();
@@ -122,25 +124,35 @@ export class NumismaticsComponent implements OnInit {
       materials = materials.concat(this.selectedMonetaryPeriod.materials);
     }
 
-    this.materialFilters = materials.map(item => {
+    this.materialFilters = materials
+      .sort((a, b) => {
+        return a.composition.localeCompare(b.composition);
+      })
+      .map(item => {
+        return {
+          id: item.id,
+          code: item.composition,
+          label: item.material
+        }
+      });
 
-      return {
-        id: item.id,
-        code: item.composition,
-        label: item.material
-      }
-
-    });
-
-    this.denominationFilters = this.selectedMonetaryPeriod.denominations.map(item => {
-
-      return {
-        id: item.id,
-        code: item.denotation,
-        label: item.denomination
-      }
-
-    });
+    this.denominationFilters = this.selectedMonetaryPeriod.denominations
+      .sort((a, b) => {
+        if (a.rate > b.rate) {
+          return 1;
+        }
+        else if (a.rate < b.rate) {
+          return -1;
+        }
+        return 0;
+      })
+      .map(item => {
+        return {
+          id: item.id,
+          code: item.denotation,
+          label: item.denomination
+        }
+      });
 
     this.retrieveCoins(0);
 
@@ -154,7 +166,12 @@ export class NumismaticsComponent implements OnInit {
 
   retrieveCoins(pageNumber: number): void {
     
-    this.numismaticsService.findIssuePeriodCoins(this.selectedMonetaryPeriod.value, pageNumber).subscribe(responce => {
+    let filters = {
+      material: this.selectedMaterial,
+      denomination: this.selectedDenomination
+    }
+
+    this.numismaticsService.findIssuePeriodCoins(this.selectedMonetaryPeriod.value, pageNumber, filters).subscribe(responce => {
       this.coins = responce.content;
       this.currentPage = responce;
 
@@ -163,12 +180,16 @@ export class NumismaticsComponent implements OnInit {
   
   }
 
-  onDenominationChanged(denominationId?: string): void {
-    this.selectedDenominationId = denominationId;
+  onDenominationChanged(denomination?: string): void {
+    this.selectedDenomination = denomination;
+
+    this.retrieveCoins(0);
   }
 
-  onMaterialChanged(materialId?: string): void {
-    this.selectedMaterialId = materialId;
+  onMaterialChanged(material?: string): void {
+    this.selectedMaterial = material;
+
+    this.retrieveCoins(0);
   }
 
 }
