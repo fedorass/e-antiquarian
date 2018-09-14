@@ -1,4 +1,4 @@
-package ua.hobby.antiquarian.app.domain.resource;
+package ua.hobby.antiquarian.app.ui.resource;
 
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;

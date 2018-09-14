@@ -1,9 +1,7 @@
-package ua.hobby.antiquarian.app.domain.resource;
+package ua.hobby.antiquarian.app.ui.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsMonetaryProjection;
 import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsCoinProjection;
@@ -11,6 +9,7 @@ import ua.hobby.antiquarian.app.domain.entity.numismatics.NumismaticsCountry;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsCoinRepository;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsCountryRepository;
 import ua.hobby.antiquarian.app.domain.repository.NumismaticsMonetaryPeriodRepository;
+import ua.hobby.antiquarian.app.ui.resource.bean.PageableParams;
 
 import javax.ws.rs.*;
 import java.util.UUID;
@@ -44,12 +43,8 @@ public class NumismaticsCountryResource {
     @GET
     @Path("/issue-periods/{uuid}/coins")
     @Produces({"application/json"})
-    public Page<NumismaticsCoinProjection> getNumismaticsCoins(@PathParam("uuid") String issuePeriodId,
-                                                               @QueryParam("page") @DefaultValue("0") Integer page,
-                                                               @QueryParam("size") @DefaultValue("12") Integer size) {
+    public Page<NumismaticsCoinProjection> getNumismaticsCoins(@PathParam("uuid") String issuePeriodId, @BeanParam PageableParams pageableParams) {
 
-        Pageable pageable = PageRequest.of(page, size);
-
-        return coinRepository.findAllByMonetaryPeriodUuid(UUID.fromString(issuePeriodId), pageable);
+        return coinRepository.findAllByMonetaryPeriodUuid(UUID.fromString(issuePeriodId), pageableParams.toPageable());
     }
 }
