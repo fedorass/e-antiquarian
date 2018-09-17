@@ -100,7 +100,6 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (36, 1, 'f06172e6-0ded-4993-94bd-1b2cd68513d3', 2, '2015-04-28', 2, 4);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (37, 1, '1c8bac3b-9568-41e1-acd3-5072c50bd73e', 2, '2015-09-02', 2, 4);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (38, 1, '49016528-0d52-468b-9d89-a3d70e30cd21', 2, '2015-09-15', 2, 4);
-
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (39, 1, '40126188-c243-4694-b08d-85daeab108ba', 2, '2017-05-11', 2, 4);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (40, 1, 'ffa39623-819a-4d7e-9441-3b735ec2f30f', 2, '2017-06-01', 2, 4);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (41, 1, '901d2221-537c-4142-bc88-1a0ba735844c', 2, '2017-07-11', 2, 4);
@@ -109,7 +108,6 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (44, 1, 'cb96d8ea-81e5-4288-987a-84a69242a150', 2, '2017-11-09', 2, 4);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (45, 1, '93c567a9-fa03-46eb-92d5-32651bf334c0', 2, '2017-12-07', 2, 4);
 
--- obverse reverse
 -- 5 UAH Nickel Silver
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (50, 1, '5ef8b7b7-c1fc-46ba-ba36-03ac89313cfb', 2, '2005-06-01', 2, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (51, 1, '743fb274-31a0-409e-bc9e-0da584d7d93c', 2, '2005-12-23', 2, 5);
@@ -117,3 +115,23 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (53, 1, 'e01b90d3-0b5b-4967-9900-bc99609b1e3b', 2, '2006-08-29', 2, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (54, 1, '823d946f-a596-4676-b47a-66cf0fd52137', 2, '2008-09-15', 2, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (55, 1, '8bf57c38-0bca-4bc3-b33a-719bd95ca342', 2, '2009-04-16', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (56, 1, '5e150a0c-4c52-450b-972b-1f0d4b62c72b', 2, '2011-08-19', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (57, 1, '3fc1953a-df5c-4275-a1da-c92c40eda33b', 2, '2013-07-03', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (58, 1, '834b3674-f621-4ecc-b10c-3d62b5e046ef', 2, '2014-10-15', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (59, 1, '4d6bf52f-0400-40f8-b190-1d9479c5a6bd', 2, '2015-05-27', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (60, 1, 'c39dc0f2-6a9b-4a06-9a6f-bc4a4f06c03b', 2, '2015-07-22', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (61, 1, 'e7da5771-b47e-44d7-abd8-7b3c0e04024e', 2, '2016-05-25', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (62, 1, 'f8ae252d-7963-4577-909d-627a806849da', 2, '2016-12-19', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (63, 1, '786411cd-6d3b-41c9-84de-8890d2cfa34a', 2, '2017-05-11', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (64, 1, 'c955d379-8176-4836-8e49-e994aff6b2e1', 2, '2017-05-25', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (65, 1, '5cad50b3-bfeb-4a1c-9840-bbd3d387569e', 2, '2017-08-15', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (66, 1, 'fdf5e24d-db2c-4ff8-8a5f-288f3631f49c', 2, '2017-08-22', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (67, 1, 'd6ad6548-adf7-4ce3-8d37-dc6caa74003f', 2, '2017-08-29', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (68, 1, 'a4d5977f-da97-4a0a-8450-b1e94fa7d8bb', 2, '2017-09-18', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (69, 1, '5d75010f-a30a-466a-897c-4931cc8dc408', 2, '2017-10-24', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (70, 1, '6a8205a3-90c1-40a3-9cce-46bf7fbd86ed', 2, '2017-10-27', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (71, 1, 'e5c4fa87-66f2-4ffb-8721-6c6e9c5463e0', 2, '2017-11-23', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (72, 1, '98d58106-16e4-4890-a428-78c0e031a00b', 2, '2017-12-26', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (73, 1, 'e8a14d33-ad8a-4d56-9845-6a7a72b43fbd', 2, '2018-03-29', 2, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (74, 1, '3f8168e3-c2af-48ab-a2c4-98f8fc2c083f', 2, '2018-04-11', 2, 5);
+-- obverse reverse
