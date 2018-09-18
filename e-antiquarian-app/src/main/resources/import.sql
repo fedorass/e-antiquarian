@@ -8,8 +8,8 @@ INSERT INTO collection_country (id, version, uuid, iso_code, default_name, colle
 INSERT INTO collection_item_material (id, version, composition, material) VALUES (1, 1, 'german-silver', 'Мельхіор');
 INSERT INTO collection_item_material (id, version, composition, material) VALUES (2, 1, 'nickel-silver', 'Нейзильбер');
 INSERT INTO collection_item_material (id, version, composition, material) VALUES (3, 1, 'silver925', 'Срібло 925');
-INSERT INTO collection_item_material (id, version, composition, material) VALUES (4, 1, 'silver400', 'Срібло 400');
-INSERT INTO collection_item_material (id, version, composition, material) VALUES (5, 1, 'silver900', 'Срібло 900');
+INSERT INTO collection_item_material (id, version, composition, material) VALUES (4, 1, 'silver900', 'Срібло 900');
+INSERT INTO collection_item_material (id, version, composition, material) VALUES (5, 1, 'silver400', 'Срібло 400');
 INSERT INTO collection_item_material (id, version, composition, material) VALUES (6, 1, 'copper', 'Мідь');
 INSERT INTO collection_item_material (id, version, composition, material) VALUES (7, 1, 'zinc', 'Цинк');
 
@@ -30,13 +30,14 @@ INSERT INTO collection_item_denomination (id, version, denotation, denomination,
 
 INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (4, 1, 'denomination_2_uah', '2 гривні', 2);
 INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (5, 1, 'denomination_5_uah', '5 гривень', 5);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (6, 1, 'denomination_10_uah', '10 гривень', 10);
 
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (6, 1, 'denomination_0_01_usd', '1 цент', 0.01);
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (7, 1, 'denomination_0_05_usd', '5 центів', 0.05);
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (8, 1, 'denomination_0_10_usd', '10 центів', 0.10);
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (9, 1, 'denomination_0_25_usd', '25 центів', 0.25);
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (10, 1, 'denomination_0_50_usd', '50 центів', 0.50);
-INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (11, 1, 'denomination_1_usd', '1 долар', 1);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (7, 1, 'denomination_0_01_usd', '1 цент', 0.01);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (8, 1, 'denomination_0_05_usd', '5 центів', 0.05);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (9, 1, 'denomination_0_10_usd', '10 центів', 0.10);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (10, 1, 'denomination_0_25_usd', '25 центів', 0.25);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (11, 1, 'denomination_0_50_usd', '50 центів', 0.50);
+INSERT INTO collection_item_denomination (id, version, denotation, denomination, rate) VALUES (12, 1, 'denomination_1_usd', '1 долар', 1);
 
 -- Numismatics Period Denominations
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (1, 1);
@@ -45,13 +46,14 @@ INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (
 
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (2, 4);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (2, 5);
+INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (2, 6);
 
-INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 6);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 7);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 8);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 9);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 10);
 INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 11);
+INSERT INTO numismatics_period_denominations (item_id, denomination_id) VALUES (3, 12);
 
 -- Country Materials
 INSERT INTO country_materials (item_id, material_id) VALUES (2, 1);
@@ -134,4 +136,15 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (72, 1, '98d58106-16e4-4890-a428-78c0e031a00b', 2, '2017-12-26', 2, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (73, 1, 'e8a14d33-ad8a-4d56-9845-6a7a72b43fbd', 2, '2018-03-29', 2, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (74, 1, '3f8168e3-c2af-48ab-a2c4-98f8fc2c083f', 2, '2018-04-11', 2, 5);
+
+-- 2 UAH Silver 925
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (80, 1, '3482b470-14fe-4ce0-9d24-e49e01df0e35', 2, '2014-08-18', 3, 4);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (81, 1, '9ef068c8-4ac1-4563-83cd-051846a552a9', 2, '2015-02-16', 3, 4);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (82, 1, '0513d11e-8fcd-4f46-8041-f62630199cb4', 2, '2015-10-22', 3, 4);
 -- obverse reverse
+-- 5 UAH Silver 925
+-- 10 UAH Silver 925
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (120, 1, '65ab32fd-a3f8-49f5-8283-c3892814184f', 2, '1999-04-30', 3, 6);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (121, 1, '36bac3ba-3a95-4e17-8607-b82d1a03ac36', 2, '2008-07-25', 3, 6);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (122, 1, '8697ff67-f15c-42e9-8653-649a8389200a', 2, '2009-11-30', 3, 6);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (123, 1, '6545d9e6-6abb-459c-95f6-3513028ae131', 2, '2010-03-25', 3, 6);
