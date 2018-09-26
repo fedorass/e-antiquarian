@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+
+  antiquarian-static:
+    image: nginx
+    restart: always
+    volumes:
+      - /Users/oleksandr.fedoras/sandbox/rarity/rarity-static/static:/usr/share/nginx/html
+    ports:
+      - 7070:80
+
+  antiquarian-db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: antiquarian
+      POSTGRES_USER: antiquarian
+      POSTGRES_PASSWORD: lghDf!6Y
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9090:8080

@@ -14,7 +14,9 @@ export class NumismaticsCoinComponent implements OnInit {
   @Input() monetaryPeriod: any;   
   @Input() country: string;   
   
-  private IMG_BASE_URL: string = 'https://s3.eu-central-1.amazonaws.com/ua.numismatics.oleksandr.fedoras.static.images/numismatics/countries/';
+  //private IMG_BASE_URL: string = 'https://s3.eu-central-1.amazonaws.com/ua.numismatics.oleksandr.fedoras.static.images/numismatics/countries/';
+
+  private IMG_BASE_URL: string = 'http://localhost:7070/numismatics/countries/';
   
   constructor() { }
 

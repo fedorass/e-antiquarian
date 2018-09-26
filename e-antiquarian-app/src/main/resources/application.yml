@@ -1,9 +1,9 @@
 spring:
   datasource:
       platform: postgres
-      url: jdbc:postgresql://localhost:5432/postgres?currentSchema=antiquarian
-      username: postgres
-      password: postgres
+      url: jdbc:postgresql://localhost:5432/antiquarian
+      username: antiquarian
+      password: lghDf!6Y
       validation-query: select 1
       test-on-borrow: true
   jpa:
@@ -11,7 +11,7 @@ spring:
     properties:
       hibernate:
         globally_quoted_identifiers: true
-        default_schema: antiquarian
+        default_schema: public
         jdbc:
           lob:
             non_contextual_creation: true
@@ -19,3 +19,4 @@ spring:
       ddl-auto: create-drop
     generate-ddl: true
     database: postgresql
+    show-sql: true
