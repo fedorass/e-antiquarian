@@ -4,7 +4,7 @@
         <label>Country</label>
     </div>
     <div class="col-md-3 mt-3">
-        <mdb-select [options]="monetaryPeriods" [disabled]="isPeriodsDisabled" (selected)="monetaryPeriodChanged($event)" placeholder="Choose monetary period" class="colorful-select dropdown-primary"></mdb-select>
+        <mdb-select #selectedMonetaryPeriodView [options]="monetaryPeriods" [disabled]="isPeriodsDisabled" (selected)="monetaryPeriodChanged($event)" placeholder="Choose monetary period" class="colorful-select dropdown-primary"></mdb-select>
         <label>Monetary period</label>
     </div>
     <div class="col-md-6 mt-3">

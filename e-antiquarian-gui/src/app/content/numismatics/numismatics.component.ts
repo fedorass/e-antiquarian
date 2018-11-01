@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild, TemplateRef, ElementRef, SimpleChanges } 
 
 import { ActivatedRoute } from '@angular/router';
 
+import { SelectModule, SelectComponent } from 'ng-uikit-pro-standard'
+
 import { NumismaticsService } from '../../service/numismatics.service';
 
 import { Page } from '../../model/page.model';
@@ -38,6 +40,10 @@ export class NumismaticsComponent implements OnInit {
   @ViewChild('coinsView') 
   coinsView: ElementRef;
 
+  @ViewChild('selectedMonetaryPeriodView')
+  selectedMonetaryPeriodView: SelectComponent;
+
+
   constructor(private route: ActivatedRoute, private numismaticsService: NumismaticsService) { 
     this.showFiltersPanel = true;
     this.currentPage = new Page<any>();
@@ -63,19 +69,21 @@ export class NumismaticsComponent implements OnInit {
     this.denominationFilters = [];
 
     this.selectedCountry = country;
-    this.monetaryPeriods = [];
+    //this.monetaryPeriods = [];
     this.selectedMonetaryPeriod = null;
+    this.selectedMonetaryPeriodView.clear();
+    this.selectedMonetaryPeriodView.clearSelection();
 
     this.coins = [];
     this.currentPage = new Page<any>();
 
-    this.numismaticsService.findCoutryIssuePeriods(country.value).subscribe(monetaryPeriods => {    
+    this.numismaticsService.findCoutryIssuePeriods(country.value).subscribe(periods => {    
 
         let groups = new Set();
 
-        this.monetaryPeriods = [];
+        let items = [];
 
-        monetaryPeriods.forEach(monetaryPeriod => {
+        periods.forEach(monetaryPeriod => {
 
           let item = {
             value: monetaryPeriod.uuid, 
@@ -94,15 +102,16 @@ export class NumismaticsComponent implements OnInit {
               group: true
             }
 
-            this.monetaryPeriods.push(groupItem);
+            items.push(groupItem);
           }
 
-          this.monetaryPeriods.push(item);
+          items.push(item);
         });
+
+        this.monetaryPeriods = items;
 
         this.isPeriodsDisabled = this.monetaryPeriods.length === 0;
       });
-
 
     this.isPeriodsDisabled = false;
   }
@@ -174,10 +183,9 @@ export class NumismaticsComponent implements OnInit {
     this.numismaticsService.findIssuePeriodCoins(this.selectedMonetaryPeriod.value, pageNumber, filters).subscribe(responce => {
       this.coins = responce.content;
       this.currentPage = responce;
-
-      this.coinsView.nativeElement.scrollTop = 0;
     });
   
+    this.coinsView.nativeElement.scrollIntoView(); //scrollTop = 0;
   }
 
   onDenominationChanged(denomination?: string): void {
@@ -191,5 +199,10 @@ export class NumismaticsComponent implements OnInit {
 
     this.retrieveCoins(0);
   }
+
+  getSelectedValue(event: any) {
+    console.log('Selected value');
+    console.log(event);
+}
 
 }
