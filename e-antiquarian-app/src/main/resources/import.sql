@@ -159,12 +159,16 @@ INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date,
 -- Серія: Вищі навчальні заклади України - 4 (14)
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (100, 1, '54dcf85e-3784-40c0-b108-09af6eb96987', 2, '2004-08-26', 3, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (101, 1, 'a1853f15-c9e8-46d6-affb-6ba665b42eb0', 2, '2004-10-05', 3, 5);
-INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (102, 1, '1dda04ec-ae82-4704-a25a-7082eb2de74b', 2, '2011-01-20', 3, 5);
-INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (103, 1, 'e8d89feb-a41b-40d9-aab6-5463702d5b1b', 2, '2013-11-01', 3, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (102, 1, '124522ab-ab63-4499-a117-e1fcd64a1fa9', 2, '2010-08-30', 3, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (103, 1, '1dda04ec-ae82-4704-a25a-7082eb2de74b', 2, '2011-01-20', 3, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (104, 1, 'e8d89feb-a41b-40d9-aab6-5463702d5b1b', 2, '2013-11-01', 3, 5);
 
 -- Серія: Видатні особистості України - 11 (24)
-INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (110, 1, '32a81f35-e20a-437e-9083-8b2dbf29a758', 2, '2006-08-23', 3, 5);
-INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (111, 1, '95da26c9-88b5-4346-94ce-bd5193bb47c5', 2, '2006-09-27', 3, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (109, 1, '32a81f35-e20a-437e-9083-8b2dbf29a758', 2, '2006-08-23', 3, 5);
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (110, 1, '95da26c9-88b5-4346-94ce-bd5193bb47c5', 2, '2006-09-27', 3, 5);
+
+INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (111, 1, '3c774aa5-ca23-43be-b366-7c4320f24a7c', 2, '2008-12-26', 3, 5);
+
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (112, 1, '7fc99b78-9c62-4820-a61c-61820daa4cfa', 2, '2009-02-27', 3, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (113, 1, 'd262b204-55af-4a3f-8b0a-de83f548d6e9', 2, '2009-09-22', 3, 5);
 INSERT INTO numismatics_coin (id, version, uuid, monetary_period_id, issue_date, coin_material_id, coin_denomination_id) VALUES (114, 1, 'ee291368-3dc2-42f5-a016-c53148f204d6', 2, '2010-02-05', 3, 5);
