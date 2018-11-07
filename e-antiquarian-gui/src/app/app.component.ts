@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   host: {
-    'class': 'vbox full-height'
+    'class': 'container-fluid vbox full-height'
   }
 })
 export class AppComponent {

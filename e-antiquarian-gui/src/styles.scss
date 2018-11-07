@@ -57,6 +57,17 @@ html, body, .viewport {
     margin: 0;
 }
 
+.viewport {
+    display: -webkit-flex;
+    display:    -moz-flex;
+    display:     -ms-flex;
+    display:         flex;
+    
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
 .vbox {
     display: -webkit-flex;
     display:    -moz-flex;
